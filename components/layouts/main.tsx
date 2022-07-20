@@ -1,13 +1,13 @@
-import {Flex} from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import Navbar from 'components/navbar/navbar'
 import Head from 'next/head'
-import {ReactNode} from 'react'
+import { ReactNode } from 'react'
 
 interface Props {
   children: ReactNode
 }
 
-const Main: React.FC<Props> = ({children}) => {
+const Main: React.FC<Props> = ({ children }) => {
   return (
     <>
       <Head>
@@ -18,7 +18,7 @@ const Main: React.FC<Props> = ({children}) => {
         <title>Enzo Muñoz - Homepage</title>
       </Head>
 
-      <Flex as="main" justifyContent="center">
+      <Flex as="main">
         <Navbar />
         {children}
       </Flex>
