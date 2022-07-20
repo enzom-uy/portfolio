@@ -1,12 +1,5 @@
-import {
-  Box,
-  Container,
-  Flex,
-  Heading,
-  useColorModeValue
-} from '@chakra-ui/react'
+import {Box, Container, Flex, useColorModeValue} from '@chakra-ui/react'
 import ToggleColorMode from 'components/buttons/toggle-color-mode'
-import Link from 'next/link'
 import React from 'react'
 import NavbarLinks from './navbar-links'
 import NavbarTitle from './navbar-title'
