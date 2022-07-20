@@ -1,10 +1,17 @@
-import {Box, Container, Flex, useColorModeValue} from '@chakra-ui/react'
+import {
+  Box,
+  Container,
+  Flex,
+  useBreakpointValue,
+  useColorModeValue
+} from '@chakra-ui/react'
 import ToggleColorMode from 'components/buttons/toggle-color-mode'
 import React from 'react'
 import NavbarLinks from './navbar-links'
 import NavbarTitle from './navbar-title'
 
 const Navbar: React.FC = () => {
+  const showMobileMenuButton = useBreakpointValue({base: true, md: false})
   return (
     <>
       <Box
@@ -23,11 +30,25 @@ const Navbar: React.FC = () => {
           width="100%"
           maxW="130ch"
         >
-          <Flex>
-            <NavbarTitle />
-            <NavbarLinks />
-          </Flex>
-          <ToggleColorMode />
+          {showMobileMenuButton ? (
+            <>
+              <Flex>
+                <NavbarTitle />
+              </Flex>
+              <Flex gap={4}>
+                <ToggleColorMode />
+                <NavbarLinks />
+              </Flex>
+            </>
+          ) : (
+            <>
+              <Flex>
+                <NavbarTitle />
+                <NavbarLinks />
+              </Flex>
+              <ToggleColorMode />
+            </>
+          )}
         </Container>
       </Box>
     </>

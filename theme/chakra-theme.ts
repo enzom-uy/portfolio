@@ -23,6 +23,14 @@ const fonts = {
   heading: "'M PLUS Rounded 1c'"
 }
 
-export const theme = extendTheme({styles, config, colors, fonts})
+const breakpoints = {
+  sm: '320px',
+  md: '768px',
+  lg: '1100px',
+  xl: '1400px',
+  '2xl': '1536px'
+}
+
+export const theme = extendTheme({styles, config, colors, fonts, breakpoints})
 
 export default theme
