@@ -1,4 +1,5 @@
-import {Box} from '@chakra-ui/react'
+import {Flex} from '@chakra-ui/react'
+import Navbar from 'components/navbar/navbar'
 import Head from 'next/head'
 import {ReactNode} from 'react'
 
@@ -17,10 +18,10 @@ const Main: React.FC<Props> = ({children}) => {
         <title>Enzo Muñoz - Homepage</title>
       </Head>
 
-      <Box as="main" pb={8}>
+      <Flex as="main" justifyContent="center">
+        <Navbar />
         {children}
-        Holaaa
-      </Box>
+      </Flex>
     </>
   )
 }

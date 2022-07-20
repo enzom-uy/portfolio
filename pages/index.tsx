@@ -1,4 +1,4 @@
-import type {NextPage} from 'next'
+import type { NextPage } from 'next'
 import Head from 'next/head'
 
 const Home: NextPage = () => {
@@ -7,8 +7,6 @@ const Home: NextPage = () => {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      Holaaaaaa Holaaaaaa Holaaaaaa Holaaaaaa Holaaaaaa Holaaaaaa Holaaaaaa
-      Holaaaaaa Holaaaaaa Holaaaaaa Holaaaaaa
     </>
   )
 }
