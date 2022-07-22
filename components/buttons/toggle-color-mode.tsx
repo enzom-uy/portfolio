@@ -22,7 +22,6 @@ const ToggleColorMode: React.FC = () => {
             <SunIcon />
           )}
           onClick={toggleColorMode}
-          zIndex={2}
         />
       </motion.div>
     </AnimatePresence>

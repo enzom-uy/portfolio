@@ -11,7 +11,7 @@ import NavbarLinks from './navbar-links'
 import NavbarTitle from './navbar-title'
 
 const Navbar: React.FC = () => {
-  const showMobileMenuButton = useBreakpointValue({base: true, md: false})
+  const showMobileMenuButton = useBreakpointValue({ base: true, md: false })
   return (
     <>
       <Box
@@ -23,6 +23,7 @@ const Navbar: React.FC = () => {
         backdropFilter="blur(10px)"
         width="100%"
         p={2}
+        zIndex={2}
       >
         <Container
           display="flex"

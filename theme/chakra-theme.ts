@@ -16,7 +16,12 @@ const config: ThemeConfig = {
 
 const colors = {
   dark: '#0f0e0e',
-  white: 'rgba(255, 255, 255, 0.25)'
+  white: 'rgba(255, 255, 255, 0.25)',
+  cardbg: 'rgba(63, 59, 59, 0.15)'
+}
+
+const boxShadows = {
+  card: '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )'
 }
 
 const fonts = {
@@ -31,6 +36,13 @@ const breakpoints = {
   '2xl': '1536px'
 }
 
-export const theme = extendTheme({styles, config, colors, fonts, breakpoints})
+export const theme = extendTheme({
+  styles,
+  config,
+  colors,
+  fonts,
+  breakpoints,
+  boxShadows
+})
 
 export default theme

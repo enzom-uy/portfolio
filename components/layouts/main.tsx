@@ -18,7 +18,6 @@ const Main: React.FC<Props> = ({children}) => {
         <title>Enzo Muñoz - Homepage</title>
       </Head>
 
-      <Navbar />
       <Container as="main" pt={16} maxW="75ch">
         {children}
       </Container>
