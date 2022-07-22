@@ -1,5 +1,5 @@
-import {extendTheme, type ThemeConfig} from '@chakra-ui/react'
-import {mode} from '@chakra-ui/theme-tools'
+import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
+import { mode } from '@chakra-ui/theme-tools'
 
 const styles = {
   global: (props: any) => ({
@@ -17,7 +17,9 @@ const config: ThemeConfig = {
 const colors = {
   dark: '#0f0e0e',
   white: 'rgba(255, 255, 255, 0.25)',
-  cardbg: 'rgba(63, 59, 59, 0.15)'
+  cardbg: 'rgba(37, 35, 35, 0.15)',
+  'icon-card-bg-dark': 'rgba(29, 29, 29, 0.6)',
+  'icon-card-bg-light': 'hsla(0, 0%, 100%, 0.7)'
 }
 
 const boxShadows = {
@@ -36,13 +38,18 @@ const breakpoints = {
   '2xl': '1536px'
 }
 
+const fontSizes = {
+  heading: '3.5rem'
+}
+
 export const theme = extendTheme({
   styles,
   config,
   colors,
   fonts,
   breakpoints,
-  boxShadows
+  boxShadows,
+  fontSizes
 })
 
 export default theme
