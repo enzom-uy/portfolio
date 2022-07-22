@@ -27,9 +27,9 @@ const Navbar: React.FC = () => {
       >
         <Container
           display="flex"
-          justifyContent="space-around"
+          justifyContent="space-between"
           width="100%"
-          maxW="130ch"
+          maxW="90ch"
         >
           {showMobileMenuButton ? (
             <>
