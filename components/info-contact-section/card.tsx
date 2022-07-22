@@ -21,9 +21,15 @@ const Card: React.FC = () => {
         justifyContent="center"
         pl={8}
       >
-        <SVGRing color={'E21E1E'} scale="0.6" left="3%" top="2%" blur="5px" />
-        <SVGRing color={'00D5BF'} scale="1" right="13%" top="73%" blur="10px" />
-        <SVGRing color={'E21E1E'} scale="0.3" left="23%" top="80%" blur="1px" />
+        <SVGRing color={'#E21E1E'} scale="0.6" left="12%" top="2%" blur="5px" />
+        <SVGRing color={'#00D5BF'} scale="1" right="7%" top="73%" blur="10px" />
+        <SVGRing
+          color={'#E21E1E'}
+          scale="0.3"
+          right="30%"
+          top="30%"
+          blur="1.5px"
+        />
         <CardHeadingText />
         <IconCard icon={FaGithub} right="30%" top="30px" />
       </Flex>

@@ -12,6 +12,7 @@ import '@fontsource/m-plus-rounded-1c/400.css'
 import '@fontsource/m-plus-rounded-1c/500.css'
 import Navbar from 'components/navbar/navbar'
 import Card from 'components/info-contact-section/card'
+import SVGRing from 'components/svgs/ring'
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
@@ -20,6 +21,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
       <Navbar />
       <Container maxW="90ch" pt="5rem">
+        <SVGRing color={'#800000'} scale="1" left="10%" top="78%" blur="4px" />
         <Card />
       </Container>
       <ScaleFade key={router.route} initialScale={0.9} in={true}>
