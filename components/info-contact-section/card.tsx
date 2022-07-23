@@ -1,11 +1,11 @@
-import { Flex } from '@chakra-ui/react'
+import { Flex, useBreakpointValue } from '@chakra-ui/react'
 import SVGRing from 'components/svgs/ring'
 import React from 'react'
-import { FaGithub } from 'react-icons/fa'
 import CardHeadingText from './card-heading-text'
-import IconCard from './icon-card'
+import FloatingCards from './floating-cards'
 
 const Card: React.FC = () => {
+  const isMobile = useBreakpointValue({ base: true, md: false })
   return (
     <>
       <Flex
@@ -19,9 +19,11 @@ const Card: React.FC = () => {
         border="1px solid rgba( 255, 255, 255, 0.02 )"
         flexDir="column"
         justifyContent="center"
+        alignItems={isMobile ? 'center' : undefined}
         pl={8}
       >
         <SVGRing color={'#E21E1E'} scale="0.6" left="12%" top="2%" blur="5px" />
+
         <SVGRing color={'#00D5BF'} scale="1" right="7%" top="73%" blur="10px" />
         <SVGRing
           color={'#E21E1E'}
@@ -31,7 +33,7 @@ const Card: React.FC = () => {
           blur="1.5px"
         />
         <CardHeadingText />
-        <IconCard icon={FaGithub} right="30%" top="30px" />
+        {isMobile ? null : <FloatingCards />}
       </Flex>
     </>
   )

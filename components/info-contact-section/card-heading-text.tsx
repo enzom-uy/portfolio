@@ -4,7 +4,7 @@ import { Flex, Text, useColorModeValue } from '@chakra-ui/react'
 const CardHeadingText: React.FC = () => {
   return (
     <>
-      <Flex width="100%">
+      <Flex>
         <Text
           fontSize="heading"
           fontFamily="heading"
