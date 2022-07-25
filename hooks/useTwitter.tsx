@@ -1,17 +1,20 @@
-import getTwitterFollowings from 'services/getTwitterFollowings'
+import getTwitterData from 'services/getTwitterData'
 import useSWR from 'swr'
 
 export const apiUrl = process.env.NEXT_PUBLIC_API_LINK
 
 const useTwitter = () => {
-  const { data: twitter } = useSWR(`${apiUrl}/twitter`, getTwitterFollowings, {
+  const { data: twitter, error } = useSWR(`${apiUrl}/twitter`, getTwitterData, {
     revalidateIfStale: false,
-    focusThrottleInterval: 600000,
-    refreshInterval: 600000
+    focusThrottleInterval: 960000,
+    refreshInterval: 960000,
+    errorRetryCount: 1,
+    shouldRetryOnError: false
   })
 
   return {
-    twitter
+    twitter,
+    error
   }
 }
 

@@ -10,11 +10,10 @@ const Main: React.FC<Props> = ({ children }) => {
   return (
     <>
       <Head>
+        <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Enzo's Homepage" />
         <meta name="author" content="Enzo Muñoz" />
         <meta name="author" content="enzom-uy" />
-        <title>Enzo Muñoz - Homepage</title>
       </Head>
 
       <Container as="main" pt={16} maxW="90ch">

@@ -4,7 +4,11 @@ import { mode } from '@chakra-ui/theme-tools'
 const styles = {
   global: (props: any) => ({
     body: {
-      bg: mode('#F1E6DB', '#0F0E0E')(props)
+      bg: mode('#F1E6DB', '#0F0E0E')(props),
+      fontFamily: 'Helvetica'
+    },
+    Text: {
+      color: 'red'
     }
   })
 }
@@ -19,7 +23,9 @@ const colors = {
   white: 'rgba(255, 255, 255, 0.25)',
   cardbg: 'rgba(37, 35, 35, 0.15)',
   'icon-card-bg-dark': 'rgba(29, 29, 29, 0.6)',
-  'icon-card-bg-light': 'hsla(0, 0%, 100%, 0.7)'
+  'icon-card-bg-light': 'hsla(0, 0%, 100%, 0.7)',
+  blue: '#0e6fe0',
+  'blue-hover': '#055bbf'
 }
 
 const boxShadows = {
@@ -42,6 +48,10 @@ const fontSizes = {
   heading: '3.5rem'
 }
 
+const sizes = {
+  pfp: '50px'
+}
+
 export const theme = extendTheme({
   styles,
   config,
@@ -49,7 +59,8 @@ export const theme = extendTheme({
   fonts,
   breakpoints,
   boxShadows,
-  fontSizes
+  fontSizes,
+  sizes
 })
 
 export default theme

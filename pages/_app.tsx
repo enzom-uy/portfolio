@@ -9,7 +9,6 @@ import theme from '../theme/chakra-theme'
 import Layout from '../components/layouts/main'
 import Navbar from 'components/navbar/navbar'
 import Card from 'components/info-contact-section/card'
-import SVGRing from 'components/svgs/ring'
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (

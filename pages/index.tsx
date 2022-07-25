@@ -1,14 +1,14 @@
+import React from 'react'
 import Main from 'components/layouts/main'
-import useTwitter from 'hooks/useTwitter'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
 const Home: NextPage = () => {
-  // const { twitter } = useTwitter()
   return (
     <Main>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Enzo Muñoz - Homepage</title>
+        <meta name="description" content="Enzo's Homepage" />
       </Head>
     </Main>
   )
