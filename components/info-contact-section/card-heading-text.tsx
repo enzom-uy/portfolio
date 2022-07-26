@@ -8,7 +8,7 @@ interface Props {
 const CardHeadingText: React.FC<Props> = ({ isMobile }) => {
   return (
     <>
-      <Flex>
+      <Flex whiteSpace="nowrap">
         <Text
           fontSize="heading"
           fontFamily="heading"
@@ -25,7 +25,7 @@ const CardHeadingText: React.FC<Props> = ({ isMobile }) => {
           ,
         </Text>
       </Flex>
-      <Flex>
+      <Flex whiteSpace="nowrap">
         <Text
           letterSpacing="wide"
           fontSize="heading"

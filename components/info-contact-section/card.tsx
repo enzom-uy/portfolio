@@ -12,7 +12,7 @@ const Card: React.FC = () => {
       <MotionBox
         display="flex"
         bgColor="cardbg"
-        minW="280px"
+        minW="200px"
         w="100%"
         h="20rem"
         boxShadow="0 8px 32px 0 rgba( 255, 38, 135, 0.10 )"
