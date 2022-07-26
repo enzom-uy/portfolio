@@ -1,4 +1,4 @@
-import {HamburgerIcon} from '@chakra-ui/icons'
+import { HamburgerIcon } from '@chakra-ui/icons'
 import {
   Flex,
   Icon,
@@ -11,7 +11,7 @@ import {
   MenuItem,
   Button
 } from '@chakra-ui/react'
-import {links} from 'helpers/variables'
+import { links } from 'helpers/variables'
 import Link from 'next/link'
 import React from 'react'
 
@@ -24,6 +24,7 @@ const linksInList = links.map((item) => (
       textDecoration: 'underline',
       textUnderlineOffset: '3px'
     }}
+    fontFamily="manrope"
   >
     {item.icon !== undefined && <Icon as={item.icon} mr="7.5px" />}
     <Link href={item.href}>{item.name}</Link>
@@ -46,7 +47,7 @@ const linksInMenu = links.map((item) => (
 ))
 
 const NavbarLinks: React.FC = () => {
-  const showMobileMenu = useBreakpointValue({base: true, md: false})
+  const showMobileMenu = useBreakpointValue({ base: true, md: false })
   if (showMobileMenu === false) {
     return (
       <Flex as={List} gap={4}>

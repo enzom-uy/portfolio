@@ -19,8 +19,9 @@ const Card: React.FC = () => {
         border="1px solid rgba( 255, 255, 255, 0.02 )"
         flexDir="column"
         justifyContent="center"
-        alignItems={isMobile ? 'center' : undefined}
+        alignItems={isMobile ? 'center' : ''}
         position="relative"
+        pl={isMobile ? 0 : 8}
       >
         <SVGRing color={'#E21E1E'} scale="0.6" left="12%" top="2%" blur="5px" />
 

@@ -11,6 +11,7 @@ import NavbarLinks from './navbar-links'
 import NavbarTitle from './navbar-title'
 
 const Navbar: React.FC = () => {
+  console.log('Rendering navbar')
   const showMobileMenuButton = useBreakpointValue({ base: true, md: false })
   return (
     <>
@@ -33,9 +34,7 @@ const Navbar: React.FC = () => {
         >
           {showMobileMenuButton ? (
             <>
-              <Flex>
-                <NavbarTitle />
-              </Flex>
+              <NavbarTitle />
               <Flex gap={4}>
                 <ToggleColorMode />
                 <NavbarLinks />
@@ -47,7 +46,6 @@ const Navbar: React.FC = () => {
                 <NavbarTitle />
                 <NavbarLinks />
               </Flex>
-              <ToggleColorMode />
             </>
           )}
         </Container>
