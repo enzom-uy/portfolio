@@ -20,7 +20,7 @@ const Card: React.FC = () => {
         flexDir="column"
         justifyContent="center"
         alignItems={isMobile ? 'center' : undefined}
-        pl={8}
+        position="relative"
       >
         <SVGRing color={'#E21E1E'} scale="0.6" left="12%" top="2%" blur="5px" />
 
@@ -29,10 +29,10 @@ const Card: React.FC = () => {
           color={'#E21E1E'}
           scale="0.3"
           right="30%"
-          top="30%"
+          top="34%"
           blur="1.5px"
         />
-        <CardHeadingText />
+        <CardHeadingText isMobile={isMobile} />
         {isMobile ? null : <FloatingCards />}
       </Flex>
     </>

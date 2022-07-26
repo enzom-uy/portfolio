@@ -6,8 +6,10 @@ export const apiUrl = process.env.NEXT_PUBLIC_API_LINK
 const useTwitter = () => {
   const { data: twitter, error } = useSWR(`${apiUrl}/twitter`, getTwitterData, {
     revalidateIfStale: false,
+    revalidateOnFocus: false,
     focusThrottleInterval: 960000,
     refreshInterval: 960000,
+    refreshWhenHidden: false,
     errorRetryCount: 1,
     shouldRetryOnError: false
   })

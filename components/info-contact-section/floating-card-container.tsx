@@ -7,7 +7,8 @@ const FloatingCardContainer = chakra(Flex, {
     borderRadius: '10px',
     backdropFilter: 'blur(7px)',
     animation: `${floatingIcon} `,
-    boxShadow: 'md'
+    boxShadow: 'md',
+    display: 'inline-block'
   }
 })
 
