@@ -5,7 +5,7 @@ const styles = {
   global: (props: any) => ({
     body: {
       bg: mode('#F1E6DB', '#0F0E0E')(props),
-      fontFamily: 'Helvetica'
+      fontFamily: 'Manrope'
     },
     Text: {
       color: 'red'
