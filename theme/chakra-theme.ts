@@ -33,7 +33,8 @@ const boxShadows = {
 }
 
 const fonts = {
-  heading: "'M PLUS Rounded 1c'"
+  heading: "'M PLUS Rounded 1c'",
+  manrope: "'Manrope', sans-serif"
 }
 
 const breakpoints = {

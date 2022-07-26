@@ -1,9 +1,10 @@
 import { Flex, useColorModeValue, Text, Box } from '@chakra-ui/react'
-import FollowingButton from 'components/buttons/following-button'
 import useTwitter from 'hooks/useTwitter'
+import { floatingIcon } from 'lib/animations'
 import React from 'react'
+import CountUp from 'react-countup'
 import FloatingCardContainer from './floating-card-container'
-import TwitterCardPfp from './twitter-card-pfp'
+import TwitterCardTop from './twitter-card-top'
 
 interface Props {
   top?: string
@@ -14,8 +15,9 @@ interface Props {
 
 const TwitterCard: React.FC<Props> = ({ top, right, bottom, left }) => {
   const { twitter, error } = useTwitter()
-  const profilePicture = twitter?.twitterData.profile_image_url
-  const twitterName = twitter?.twitterData.username
+  const followings = twitter?.followings
+  const followers = twitter?.followers
+
   return (
     <FloatingCardContainer
       bgColor={useColorModeValue('icon-card-bg-light', 'icon-card-bg-dark')}
@@ -27,20 +29,37 @@ const TwitterCard: React.FC<Props> = ({ top, right, bottom, left }) => {
       left={left}
       position="absolute"
       fontFamily="heading"
+      animation={`${floatingIcon} 4s ease-in-out infinite`}
+      style={{ animationDelay: '150ms' }}
     >
-      <Flex alignItems="center" justifyContent="space-between" w="full">
-        <Flex alignItems="center" gap={3}>
-          <TwitterCardPfp profilePicture={profilePicture} error={error} />
-          <Box>
-            <Text fontWeight="600" letterSpacing="tight">
-              {twitterName ? twitterName : 'enzom_uy'}
-            </Text>
-            <Text fontSize=".7rem" color="gray">
-              @enzom_uy
-            </Text>
-          </Box>
-        </Flex>
-        <FollowingButton />
+      <Flex
+        alignItems="center"
+        justifyContent="space-between"
+        w="full"
+        flexDir="column"
+      >
+        <TwitterCardTop twitter={twitter} error={error} />
+        <Box width="full" px={4} pt={2}>
+          <Text
+            fontSize=".8rem"
+            fontFamily="manrope"
+            fontWeight="300"
+            letterSpacing="wide"
+          >
+            {twitter?.twitterData.description
+              ? twitter.twitterData.description
+              : 'Full-Stack Developer.'}
+          </Text>
+          <Text
+            fontWeight="300"
+            fontFamily="manrope"
+            fontSize=".7rem"
+            letterSpacing="wider"
+          >
+            <CountUp end={followings || 0} /> Following{' '}
+            <CountUp end={followers || 0} /> Followers
+          </Text>
+        </Box>
       </Flex>
     </FloatingCardContainer>
   )

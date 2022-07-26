@@ -14,7 +14,8 @@ const useTwitter = () => {
 
   return {
     twitter,
-    error
+    error,
+    isLoading: !twitter && !error
   }
 }
 

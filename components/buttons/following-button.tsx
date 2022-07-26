@@ -7,7 +7,7 @@ const FollowingButton: React.FC = () => {
       <Link
         bgColor="blue"
         px={5}
-        py={2}
+        py={0.5}
         rounded="lg"
         _hover={{ bgColor: 'blue-hover' }}
         transitionDuration="0.3s"
