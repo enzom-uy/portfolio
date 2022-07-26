@@ -32,8 +32,9 @@ const TwitterCardBottom: React.FC<Props> = ({
         fontSize=".7rem"
         letterSpacing="wider"
       >
-        <CountUp end={followings || 0} /> Following{' '}
-        <CountUp end={followers || 0} /> Followers
+        <CountUp end={followings || 0} style={{ fontWeight: '600' }} />{' '}
+        Following <CountUp end={followers || 0} style={{ fontWeight: '600' }} />{' '}
+        Followers
       </Text>
     </Box>
   )

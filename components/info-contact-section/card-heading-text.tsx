@@ -63,6 +63,7 @@ const CardHeadingText: React.FC<Props> = ({ isMobile }) => {
         fontFamily="heading"
         fontSize="1.1rem"
         textAlign={isMobile ? 'center' : undefined}
+        maxW={isMobile ? '25ch' : undefined}
       >
         I&apos;m a Full-stack Developer based in Uruguay.
       </Text>

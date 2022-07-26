@@ -19,8 +19,8 @@ const TwitterCard: React.FC<Props> = ({ top, right, bottom, left }) => {
   return (
     <FloatingCardContainer
       bgColor={useColorModeValue('icon-card-bg-light', 'icon-card-bg-dark')}
-      width="280px"
-      p={4}
+      width="240px"
+      py={4}
       top={top}
       right={right}
       bottom={bottom}

@@ -12,9 +12,9 @@ const Card: React.FC = () => {
       <MotionBox
         display="flex"
         bgColor="cardbg"
-        minW="200px"
+        minW="230px"
         w="100%"
-        h="20rem"
+        h="17rem"
         boxShadow="0 8px 32px 0 rgba( 255, 38, 135, 0.10 )"
         backdropFilter="blur(2.5px)"
         borderRadius="10px"
@@ -44,7 +44,7 @@ const Card: React.FC = () => {
           scale="0.3"
           right="30%"
           top="34%"
-          blur="1.5px"
+          blur="2.7px"
         />
         <CardHeadingText isMobile={isMobile} />
         {isMobile ? null : <FloatingCards />}

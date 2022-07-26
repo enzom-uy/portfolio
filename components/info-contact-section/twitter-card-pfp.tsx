@@ -11,8 +11,7 @@ interface Props {
 const TwitterCardPfp: React.FC<Props> = ({ profilePicture, error }) => {
   return (
     <Flex
-      width={12}
-      height={12}
+      width="2.7rem"
       rounded="full"
       alignItems="center"
       justifyContent="center"
