@@ -1,8 +1,7 @@
-import { Flex, useColorModeValue, Text, Box } from '@chakra-ui/react'
+import { Flex, useColorModeValue } from '@chakra-ui/react'
 import useTwitter from 'hooks/useTwitter'
 import { floatingIcon } from 'lib/animations'
 import React from 'react'
-import CountUp from 'react-countup'
 import FloatingCardContainer from './floating-card-container'
 import TwitterCardBottom from './twitter-card-bottom'
 import TwitterCardTop from './twitter-card-top'
@@ -15,9 +14,7 @@ interface Props {
 }
 
 const TwitterCard: React.FC<Props> = ({ top, right, bottom, left }) => {
-  const { twitter, error } = useTwitter()
-  const followings = twitter?.followings
-  const followers = twitter?.followers
+  const { twitter, error, followings, followers } = useTwitter()
 
   return (
     <FloatingCardContainer
@@ -40,7 +37,11 @@ const TwitterCard: React.FC<Props> = ({ top, right, bottom, left }) => {
         flexDir="column"
       >
         <TwitterCardTop twitter={twitter} error={error} />
-        <TwitterCardBottom twitter={twitter} />
+        <TwitterCardBottom
+          twitter={twitter}
+          followings={followings}
+          followers={followers}
+        />
       </Flex>
     </FloatingCardContainer>
   )

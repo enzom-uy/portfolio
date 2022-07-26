@@ -5,11 +5,15 @@ import { Twitter } from 'interfaces/twitter'
 
 interface Props {
   twitter: Twitter | undefined
+  followings: number | undefined
+  followers: number | undefined
 }
 
-const TwitterCardBottom: React.FC<Props> = ({ twitter }) => {
-  const followings = twitter?.followings
-  const followers = twitter?.followers
+const TwitterCardBottom: React.FC<Props> = ({
+  twitter,
+  followings,
+  followers
+}) => {
   return (
     <Box width="full" px={4} pt={2}>
       <Text

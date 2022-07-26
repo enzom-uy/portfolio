@@ -11,11 +11,17 @@ const useTwitter = () => {
     refreshInterval: 960000,
     refreshWhenHidden: false,
     errorRetryCount: 1,
-    shouldRetryOnError: false
+    shouldRetryOnError: false,
+    dedupingInterval: 5000
   })
+
+  const followings = twitter?.followings
+  const followers = twitter?.followers
 
   return {
     twitter,
+    followings,
+    followers,
     error,
     isLoading: !twitter && !error
   }

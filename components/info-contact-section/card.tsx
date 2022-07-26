@@ -1,14 +1,16 @@
-import { Flex, useBreakpointValue } from '@chakra-ui/react'
+import { useBreakpointValue } from '@chakra-ui/react'
 import SVGRing from 'components/svgs/ring'
 import React from 'react'
 import CardHeadingText from './card-heading-text'
 import FloatingCards from './floating-cards'
+import { MotionBox } from 'components/motion/motion-box'
 
 const Card: React.FC = () => {
   const isMobile = useBreakpointValue({ base: true, md: false })
   return (
     <>
-      <Flex
+      <MotionBox
+        display="flex"
         bgColor="cardbg"
         minW="280px"
         w="100%"
@@ -22,6 +24,17 @@ const Card: React.FC = () => {
         alignItems={isMobile ? 'center' : ''}
         position="relative"
         pl={isMobile ? 0 : 8}
+        initial={{
+          opacity: 0,
+          translateY: '100%'
+        }}
+        animate={{
+          translateY: '0%',
+          opacity: 1
+        }}
+        transition={{
+          duration: '.8'
+        }}
       >
         <SVGRing color={'#E21E1E'} scale="0.6" left="12%" top="2%" blur="5px" />
 
@@ -35,7 +48,7 @@ const Card: React.FC = () => {
         />
         <CardHeadingText isMobile={isMobile} />
         {isMobile ? null : <FloatingCards />}
-      </Flex>
+      </MotionBox>
     </>
   )
 }
