@@ -9,28 +9,44 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  Button
+  Button,
+  Link as ChakraLink
 } from '@chakra-ui/react'
 import { links } from 'helpers/variables'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React from 'react'
 
-const linksInList = links.map((item) => (
-  <ListItem
-    key={item.name}
-    display="flex"
-    alignItems="center"
-    _hover={{
-      textDecoration: 'underline',
-      textUnderlineOffset: '3px'
-    }}
-    fontFamily="manrope"
-  >
-    {item.icon !== undefined && <Icon as={item.icon} mr="7.5px" />}
-    <Link href={item.href}>{item.name}</Link>
-  </ListItem>
-))
-
+const linksInList = (currentPath: string) => {
+  console.log(`Current path es: ${currentPath}`)
+  const renderLinks = links.map((item) => {
+    const isCurrentPath = currentPath === item.href
+    return (
+      <ListItem
+        key={item.name}
+        display="flex"
+        alignItems="center"
+        _hover={{
+          textDecoration: 'underline',
+          textUnderlineOffset: '3px'
+        }}
+        color={isCurrentPath ? 'dark' : undefined}
+        bgColor={isCurrentPath ? 'teal.500' : undefined}
+        p={2}
+      >
+        {item.icon !== undefined && <Icon as={item.icon} mr="7.5px" />}
+        {item.icon ? (
+          <ChakraLink href={item.href} target="_blank" rel="noreferrer">
+            {item.name}
+          </ChakraLink>
+        ) : (
+          <Link href={item.href}>{item.name}</Link>
+        )}
+      </ListItem>
+    )
+  })
+  return renderLinks
+}
 const linksInMenu = links.map((item) => (
   <MenuItem
     key={item.name}
@@ -47,11 +63,14 @@ const linksInMenu = links.map((item) => (
 ))
 
 const NavbarLinks: React.FC = () => {
+  const router = useRouter()
+  const currentPath = router.route
+  console.log(currentPath)
   const showMobileMenu = useBreakpointValue({ base: true, md: false })
   if (showMobileMenu === false) {
     return (
-      <Flex as={List} gap={4}>
-        {linksInList}
+      <Flex as={List} gap={2}>
+        {linksInList(currentPath)}
       </Flex>
     )
   } else {
