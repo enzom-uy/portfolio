@@ -2,11 +2,6 @@ import { FaGithub } from 'react-icons/fa'
 
 export const links = [
   {
-    name: 'Home',
-    icon: undefined,
-    href: '/'
-  },
-  {
     name: 'Works',
     icon: undefined,
     href: '/works'
