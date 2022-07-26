@@ -1,4 +1,5 @@
 import { Container } from '@chakra-ui/react'
+import { MotionBox } from 'components/motion/motion-box'
 import Head from 'next/head'
 import { ReactNode } from 'react'
 
@@ -8,7 +9,20 @@ interface Props {
 
 const Main: React.FC<Props> = ({ children }) => {
   return (
-    <>
+    <MotionBox
+      initial={{
+        opacity: 0,
+        translateY: '100%'
+      }}
+      animate={{
+        translateY: '0%',
+        opacity: 1
+      }}
+      transition={{
+        duration: '.8',
+        delay: '.3'
+      }}
+    >
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,10 +30,10 @@ const Main: React.FC<Props> = ({ children }) => {
         <meta name="author" content="enzom-uy" />
       </Head>
 
-      <Container as="main" pt={16} maxW="90ch">
+      <Container as="main" pt={6} maxW="40rem">
         {children}
       </Container>
-    </>
+    </MotionBox>
   )
 }
 
