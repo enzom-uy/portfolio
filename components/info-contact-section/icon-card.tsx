@@ -11,6 +11,7 @@ interface Props {
   left?: number | string
   right?: number | string
   animationSpeed?: string
+  href?: string
 }
 
 const IconCard: React.FC<Props> = ({
@@ -19,11 +20,13 @@ const IconCard: React.FC<Props> = ({
   bottom,
   left,
   right,
-  animationSpeed
+  animationSpeed,
+  href
 }) => {
   return (
     <FloatingCardContainer
       position="absolute"
+      as="a"
       top={top}
       bottom={bottom}
       left={left}
@@ -35,6 +38,9 @@ const IconCard: React.FC<Props> = ({
       alignItems="center"
       justifyContent="center"
       animation={`${floatingIcon} ${animationSpeed} ease-in-out infinite`}
+      href={href}
+      target="_blank"
+      rel="noreferrer"
     >
       <Icon as={icon} fontSize="2rem" zIndex={2} />
     </FloatingCardContainer>

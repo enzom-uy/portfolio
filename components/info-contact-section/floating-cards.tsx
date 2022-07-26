@@ -6,13 +6,20 @@ import TwitterCard from './twitter-card'
 const FloatingCards: React.FC = () => {
   return (
     <>
-      <IconCard icon={FaGithub} right="47%" top="60px" animationSpeed="3.7s" />
+      <IconCard
+        icon={FaGithub}
+        right="48.5%"
+        top="60px"
+        animationSpeed="3.7s"
+        href="https://github.com/enzom-uy/"
+      />
       <TwitterCard top={''} right={'10%'} />
       <IconCard
         icon={FaLinkedin}
-        right="3%"
+        right="2%"
         top="200px"
         animationSpeed="3.3s"
+        href="https://www.linkedin.com/in/enzomdev/"
       />
     </>
   )

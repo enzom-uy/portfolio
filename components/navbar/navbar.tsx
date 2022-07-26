@@ -46,6 +46,7 @@ const Navbar: React.FC = () => {
                 <NavbarTitle />
                 <NavbarLinks />
               </Flex>
+              <ToggleColorMode />
             </>
           )}
         </Container>
