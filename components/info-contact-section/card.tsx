@@ -15,7 +15,7 @@ const Card: React.FC = () => {
         minW="230px"
         w="100%"
         h="17rem"
-        boxShadow="0 8px 32px 0 rgba( 255, 38, 135, 0.10 )"
+        boxShadow="0 2px 32px 0 rgba( 255, 38, 135, 0.10 )"
         backdropFilter="blur(2.5px)"
         borderRadius="10px"
         border="1px solid rgba( 255, 255, 255, 0.02 )"
