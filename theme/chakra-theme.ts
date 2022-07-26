@@ -6,9 +6,6 @@ const styles = {
     body: {
       bg: mode('#F1E6DB', '#0F0E0E')(props),
       fontFamily: 'Manrope'
-    },
-    Text: {
-      color: 'red'
     }
   })
 }
@@ -46,7 +43,7 @@ const breakpoints = {
 }
 
 const fontSizes = {
-  heading: 'clamp(2.5rem, 7vw, 3.5rem)'
+  heading: 'clamp(2.5rem, 7vw, 3rem)'
 }
 
 const sizes = {
