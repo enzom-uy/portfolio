@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { Box } from '@chakra-ui/react'
 import BriefBioCard from 'components/bio-section/brief-bio-card'
 import BioSection from 'components/bio-section/bio-section'
+import SkillsSection from 'components/skills-section/skills-section'
 
 const Home: NextPage = () => {
   return (
@@ -15,6 +16,7 @@ const Home: NextPage = () => {
       <Box as="section">
         <BriefBioCard />
         <BioSection />
+        <SkillsSection />
       </Box>
     </>
   )
