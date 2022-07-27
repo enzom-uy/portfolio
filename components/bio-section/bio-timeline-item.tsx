@@ -28,6 +28,7 @@ const BioTimelineItem: React.FC<Props> = ({
           <Highlight
             query={highlight}
             styles={{ p: p, bgColor: bgColor, color: color }}
+            key={highlight}
           >
             {text}
           </Highlight>
