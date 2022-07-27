@@ -5,14 +5,17 @@ const styles = {
   global: (props: any) => ({
     body: {
       bg: mode('#F1E6DB', '#0F0E0E')(props),
-      fontFamily: 'Manrope'
+      fontFamily: 'Manrope',
+      transitionProperty: 'all',
+      transitionDuration: 'normal'
     }
   })
 }
 
 const config: ThemeConfig = {
   initialColorMode: 'light',
-  useSystemColorMode: false
+  useSystemColorMode: false,
+  disableTransitionOnChange: false
 }
 
 const colors = {
