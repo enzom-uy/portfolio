@@ -1,28 +1,17 @@
-import {
-  Box,
-  Container,
-  Flex,
-  Heading,
-  Text,
-  useBreakpointValue
-} from '@chakra-ui/react'
+import { Box, Heading, Text, useBreakpointValue } from '@chakra-ui/react'
 import React from 'react'
 import me from 'public/assets/me.jpeg'
 import Image from 'next/image'
+import SimpleContainer from 'components/containers/simple-container'
 
 const BriefBioCard = () => {
   const isMobile = useBreakpointValue({ base: true, md: false })
   return (
-    <Flex
-      as={Container}
+    <SimpleContainer
       justifyContent="space-between"
       flexDir={isMobile ? 'column' : 'row'}
       alignItems="center"
       gap={isMobile ? 6 : 0}
-      bgColor="cardbg"
-      p={6}
-      rounded="lg"
-      boxShadow="base"
     >
       <Box whiteSpace="nowrap">
         <Heading fontFamily="heading" letterSpacing="wide">
@@ -39,7 +28,7 @@ const BriefBioCard = () => {
           style={{ borderRadius: '100%' }}
         />
       </Box>
-    </Flex>
+    </SimpleContainer>
   )
 }
 

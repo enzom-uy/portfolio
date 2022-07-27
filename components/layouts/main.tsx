@@ -12,7 +12,7 @@ const Main: React.FC<Props> = ({ children }) => {
     <MotionBox
       initial={{
         opacity: 0,
-        translateY: '100%'
+        translateY: '5%'
       }}
       animate={{
         translateY: '0%',
