@@ -46,7 +46,8 @@ const breakpoints = {
 }
 
 const fontSizes = {
-  heading: 'clamp(2.5rem, 7vw, 3rem)'
+  heading: 'clamp(2.5rem, 7vw, 3rem)',
+  'skill-icon': 'clamp(2.5rem, 7vw, 4.5rem)'
 }
 
 const sizes = {
