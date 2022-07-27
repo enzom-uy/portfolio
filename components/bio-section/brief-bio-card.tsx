@@ -3,9 +3,10 @@ import React from 'react'
 import me from 'public/assets/me.jpeg'
 import Image from 'next/image'
 import SimpleContainer from 'components/containers/simple-container'
+import useViewport from 'hooks/useViewport'
 
 const BriefBioCard = () => {
-  const isMobile = useBreakpointValue({ base: true, md: false })
+  const { isMobile } = useViewport()
   return (
     <SimpleContainer
       justifyContent="space-between"

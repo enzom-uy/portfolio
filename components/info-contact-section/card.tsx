@@ -4,9 +4,10 @@ import React from 'react'
 import CardHeadingText from './card-heading-text'
 import FloatingCards from './floating-cards'
 import { MotionBox } from 'components/motion/motion-box'
+import useViewport from 'hooks/useViewport'
 
 const Card: React.FC = () => {
-  const isMobile = useBreakpointValue({ base: true, md: false })
+  const { isMobile } = useViewport()
   return (
     <>
       <MotionBox
