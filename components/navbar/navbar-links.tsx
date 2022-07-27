@@ -17,9 +17,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 
-const linksInList = (currentPath: string) => {
+const linksDesktop = (currentPath: string) => {
   console.log(`Current path es: ${currentPath}`)
-  const renderLinks = links.map((item) => {
+  const renderLinks = links.desktop.map((item) => {
     const isCurrentPath = currentPath === item.href
     return (
       <ListItem
@@ -47,7 +47,7 @@ const linksInList = (currentPath: string) => {
   })
   return renderLinks
 }
-const linksInMenu = links.map((item) => (
+const linksMobile = links.mobile.map((item) => (
   <MenuItem
     key={item.name}
     display="flex"
@@ -70,7 +70,7 @@ const NavbarLinks: React.FC = () => {
   if (showMobileMenu === false) {
     return (
       <Flex as={List} gap={2}>
-        {linksInList(currentPath)}
+        {linksDesktop(currentPath)}
       </Flex>
     )
   } else {
@@ -79,7 +79,7 @@ const NavbarLinks: React.FC = () => {
         <MenuButton as={Button}>
           <HamburgerIcon />
         </MenuButton>
-        <MenuList>{linksInMenu}</MenuList>
+        <MenuList>{linksMobile}</MenuList>
       </Menu>
     )
   }
