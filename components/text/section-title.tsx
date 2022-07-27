@@ -2,7 +2,6 @@ import { chakra, Text } from '@chakra-ui/react'
 
 const SectionTitle = chakra(Text, {
   baseStyle: {
-    as: 'h3',
     fontSize: '1.25rem',
     fontWeight: 'bold',
     textDecoration: 'underline',
