@@ -11,7 +11,6 @@ import NavbarLinks from './navbar-links'
 import NavbarTitle from './navbar-title'
 
 const Navbar: React.FC = () => {
-  console.log('Rendering navbar')
   const showMobileMenuButton = useBreakpointValue({ base: true, md: false })
   return (
     <>

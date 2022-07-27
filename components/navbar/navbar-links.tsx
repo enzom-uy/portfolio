@@ -18,7 +18,6 @@ import { useRouter } from 'next/router'
 import React from 'react'
 
 const linksDesktop = (currentPath: string) => {
-  console.log(`Current path es: ${currentPath}`)
   const renderLinks = links.desktop.map((item) => {
     const isCurrentPath = currentPath === item.href
     return (
@@ -65,7 +64,6 @@ const linksMobile = links.mobile.map((item) => (
 const NavbarLinks: React.FC = () => {
   const router = useRouter()
   const currentPath = router.route
-  console.log(currentPath)
   const showMobileMenu = useBreakpointValue({ base: true, md: false })
   if (showMobileMenu === false) {
     return (
