@@ -22,7 +22,7 @@ const config: ThemeConfig = {
 }
 
 const colors = {
-  dark: '#0f0e0e',
+  dark: 'rgba(15, 14, 14, 0.85)',
   white: 'rgba(255, 255, 255, 0.25)',
   cardbg: 'rgba(37, 35, 35, 0.15)',
   'icon-card-bg-dark': 'rgba(29, 29, 29, 0.6)',
