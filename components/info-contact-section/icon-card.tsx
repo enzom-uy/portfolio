@@ -27,6 +27,7 @@ const IconCard: React.FC<Props> = ({
     <FloatingCardContainer
       position="absolute"
       as="a"
+      width="auto"
       top={top}
       bottom={bottom}
       left={left}
