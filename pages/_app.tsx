@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
 
       <Navbar />
-      <Container pt="5rem" width="100%" maxW="45rem">
+      <Container pt="5rem" maxW="45rem">
         <Card />
       </Container>
       <ScaleFade key={router.route} initialScale={0.9} in={true}>

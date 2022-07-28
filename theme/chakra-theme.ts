@@ -8,6 +8,9 @@ const styles = {
       fontFamily: 'Manrope',
       transitionProperty: 'all',
       transitionDuration: 'normal'
+    },
+    a: {
+      width: '100%'
     }
   })
 }

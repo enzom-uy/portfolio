@@ -10,12 +10,16 @@ import {
   MenuList,
   MenuItem,
   Button,
-  Link as ChakraLink
+  Link as ChakraLink,
+  chakra
 } from '@chakra-ui/react'
 import { links } from 'helpers/variables'
+import useViewport from 'hooks/useViewport'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
+
+const NextLink = chakra(Link)
 
 const linksDesktop = (currentPath: string) => {
   const renderLinks = links.desktop.map((item) => {
@@ -39,7 +43,7 @@ const linksDesktop = (currentPath: string) => {
             {item.name}
           </ChakraLink>
         ) : (
-          <Link href={item.href}>{item.name}</Link>
+          <NextLink href={item.href}>{item.name}</NextLink>
         )}
       </ListItem>
     )
@@ -47,25 +51,17 @@ const linksDesktop = (currentPath: string) => {
   return renderLinks
 }
 const linksMobile = links.mobile.map((item) => (
-  <MenuItem
-    key={item.name}
-    display="flex"
-    alignItems="center"
-    _hover={{
-      textDecoration: 'underline',
-      textUnderlineOffset: '3px'
-    }}
-  >
+  <MenuItem key={item.name} display="flex" alignItems="center">
     {item.icon !== undefined && <Icon as={item.icon} mr="7.5px" />}
-    <Link href={item.href}>{item.name}</Link>
+    <NextLink href={item.href}>{item.name}</NextLink>
   </MenuItem>
 ))
 
 const NavbarLinks: React.FC = () => {
   const router = useRouter()
   const currentPath = router.route
-  const showMobileMenu = useBreakpointValue({ base: true, md: false })
-  if (showMobileMenu === false) {
+  const { isMobile } = useViewport()
+  if (isMobile === false) {
     return (
       <Flex as={List} gap={2}>
         {linksDesktop(currentPath)}
