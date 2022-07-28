@@ -1,4 +1,3 @@
-import { useBreakpointValue } from '@chakra-ui/react'
 import SVGRing from 'components/svgs/ring'
 import React from 'react'
 import CardHeadingText from './card-heading-text'

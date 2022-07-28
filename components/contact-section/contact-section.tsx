@@ -1,4 +1,4 @@
-import { Box, Flex, Icon, Link, Text } from '@chakra-ui/react'
+import { Flex, Icon, Link, Text } from '@chakra-ui/react'
 import SimpleContainer from 'components/containers/simple-container'
 import SectionTitle from 'components/text/section-title'
 import React from 'react'

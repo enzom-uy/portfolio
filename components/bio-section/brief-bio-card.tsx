@@ -1,5 +1,4 @@
-import { Box, Heading, Text, useBreakpointValue } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Heading, Text } from '@chakra-ui/react'
 import me from 'public/assets/me.jpeg'
 import Image from 'next/image'
 import SimpleContainer from 'components/containers/simple-container'
