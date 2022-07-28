@@ -15,7 +15,7 @@ const SkillsSkill: React.FC<{
         alignItems="center"
         bgColor="white"
         rounded="lg"
-        minW="100px"
+        width="130px"
         grow="1"
       >
         <Box p={4}>

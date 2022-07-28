@@ -6,6 +6,7 @@ const FollowingButton: React.FC = () => {
     <>
       <Link
         bgColor="blue"
+        width="auto"
         px={5}
         py={0.5}
         rounded="lg"
