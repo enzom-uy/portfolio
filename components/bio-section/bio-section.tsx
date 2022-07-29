@@ -16,7 +16,7 @@ const BioSection: React.FC = () => {
         Enzo is a Full Stack Developer based in Uruguay with a passion for
         coding and nerdy stuff. He started his journey in 2021 when he decided
         to study Web Development. Currently, he keeps practicing and learning
-        everyday, building things for him and his friends.
+        everyday, building new things.
       </SectionParagraph>
       <BioTimelineItem year={2001} text={'Born in Florida, Uruguay.'} />
       <BioTimelineItem
