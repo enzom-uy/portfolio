@@ -9,22 +9,27 @@ import theme from '../theme/chakra-theme'
 import Layout from '../components/layouts/main'
 import Navbar from 'components/navbar/navbar'
 import Card from 'components/info-contact-section/card'
+import { UserContext } from 'context/user-context'
+import { useUserReducer } from 'reducers/user-reducer'
 
 function MyApp({ Component, pageProps, router }: AppProps) {
+  const { username, login, logout } = useUserReducer()
   return (
-    <ChakraProvider theme={theme}>
-      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+    <UserContext.Provider value={{ username, login, logout }}>
+      <ChakraProvider theme={theme}>
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
 
-      <Navbar />
-      <Container pt="5rem" maxW="45rem">
-        <Card />
-      </Container>
-      <ScaleFade key={router.route} initialScale={0.9} in={true}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ScaleFade>
-    </ChakraProvider>
+        <Navbar />
+        <Container pt="5rem" maxW="45rem">
+          <Card />
+        </Container>
+        <ScaleFade key={router.route} initialScale={0.9} in={true}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ScaleFade>
+      </ChakraProvider>
+    </UserContext.Provider>
   )
 }
 
