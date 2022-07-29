@@ -14,6 +14,7 @@ const TwitterCardBottom: React.FC<Props> = ({
   followings,
   followers
 }) => {
+  const description = twitter?.twitterData.description
   return (
     <Box width="full" px={4} pt={2}>
       <Text
@@ -22,9 +23,7 @@ const TwitterCardBottom: React.FC<Props> = ({
         fontWeight="300"
         letterSpacing="wide"
       >
-        {twitter?.twitterData.description
-          ? twitter.twitterData.description
-          : 'Full-Stack Developer.'}
+        {description === undefined ? 'Full-Stack Developer.' : description}
       </Text>
       <Text
         fontWeight="300"
@@ -32,9 +31,14 @@ const TwitterCardBottom: React.FC<Props> = ({
         fontSize=".7rem"
         letterSpacing="wider"
       >
-        <CountUp end={followings || 0} style={{ fontWeight: '600' }} />{' '}
-        Following <CountUp end={followers || 0} style={{ fontWeight: '600' }} />{' '}
-        Followers
+        {followings === 0 ? null : (
+          <>
+            <CountUp end={followings || 0} style={{ fontWeight: '600' }} />{' '}
+            Following{' '}
+            <CountUp end={followers || 0} style={{ fontWeight: '600' }} />{' '}
+            Followers
+          </>
+        )}
       </Text>
     </Box>
   )

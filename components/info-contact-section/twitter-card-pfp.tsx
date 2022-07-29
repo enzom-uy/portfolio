@@ -23,7 +23,7 @@ const TwitterCardPfp: React.FC<Props> = ({ profilePicture, error }) => {
           height={48}
           rounded="full"
         />
-      ) : error ? (
+      ) : error || profilePicture === undefined ? (
         <NextChakraImage src={pfp} rounded="full" />
       ) : (
         <Spinner size="lg" speed="1s" />

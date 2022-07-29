@@ -10,6 +10,8 @@ interface Props {
 }
 
 const TwitterCardTop: React.FC<Props> = ({ twitter, error }) => {
+  const twitterName = twitter?.twitterData.name
+  const twitterUsername = twitter?.twitterData.username
   return (
     <>
       <Flex alignItems="center" gap={3}>
@@ -19,12 +21,13 @@ const TwitterCardTop: React.FC<Props> = ({ twitter, error }) => {
         />
         <Box>
           <Text fontWeight="600" letterSpacing="tight">
-            {twitter?.twitterData.name && twitter.twitterData.name}
+            {twitterName === undefined ? 'Enzomdev' : twitterName}
           </Text>
 
           <Text fontSize=".7rem" color="gray">
-            {twitter?.twitterData.username &&
-              `@${twitter?.twitterData.username}`}
+            {twitterUsername === undefined
+              ? '@enzom_uy'
+              : `@${twitterUsername}`}
           </Text>
         </Box>
         <FollowingButton />
