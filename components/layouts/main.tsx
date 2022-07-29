@@ -30,7 +30,13 @@ const Main: React.FC<Props> = ({ children }) => {
         <meta name="author" content="enzom-uy" />
       </Head>
 
-      <Container as="main" pt={8} maxW="40rem">
+      <Container
+        as="main"
+        pt={8}
+        maxW="40rem"
+        display="flex"
+        justifyContent="center"
+      >
         {children}
       </Container>
     </MotionBox>
