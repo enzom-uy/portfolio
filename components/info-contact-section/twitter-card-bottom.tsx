@@ -1,7 +1,7 @@
-import React from 'react'
 import { Box, Text } from '@chakra-ui/react'
-import CountUp from 'react-countup'
 import { Twitter } from 'interfaces/twitter'
+import React from 'react'
+import CountUp from 'react-countup'
 
 interface Props {
   twitter: Twitter | undefined
@@ -15,6 +15,7 @@ const TwitterCardBottom: React.FC<Props> = ({
   followers
 }) => {
   const description = twitter?.twitterData.description
+
   return (
     <Box width="full" px={4} pt={2}>
       <Text
@@ -31,7 +32,7 @@ const TwitterCardBottom: React.FC<Props> = ({
         fontSize=".7rem"
         letterSpacing="wider"
       >
-        {followings === 0 ? null : (
+        {followings === undefined ? null : (
           <>
             <CountUp end={followings || 0} style={{ fontWeight: '600' }} />{' '}
             Following{' '}
