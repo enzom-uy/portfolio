@@ -21,13 +21,13 @@ const BriefBioCard = () => {
           Full-Stack Developer.
         </Text>
       </Box>
-      <Box width={24} rounded="full">
-        <Image
-          src={me}
-          alt="Picture of Enzo Muñoz"
-          style={{ borderRadius: '100%' }}
-        />
-      </Box>
+      <Image
+        src={me}
+        height={96}
+        width={96}
+        alt="Picture of Enzo Muñoz"
+        style={{ borderRadius: '100%' }}
+      />
     </SimpleContainer>
   )
 }
