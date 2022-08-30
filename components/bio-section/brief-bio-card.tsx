@@ -23,8 +23,8 @@ const BriefBioCard = () => {
       </Box>
       <Image
         src={me}
-        height={96}
-        width={96}
+        height="96"
+        width="96"
         alt="Picture of Enzo Muñoz"
         style={{ borderRadius: '100%' }}
       />
