@@ -8,7 +8,7 @@ import BioTimelineItem from './bio-timeline-item'
 const BioSection: React.FC = () => {
   const textDecorationColor = useColorModeValue('purple.500', 'orange.200')
   const senpaiColor = useColorModeValue('#1e1f70', '#6768E3')
-  const coderhouseColor = useColorModeValue('#386918', '#C1D35D')
+  const coderhouseColor = useColorModeValue('#1b330b', '#C1D35D')
   return (
     <SimpleContainer as="section">
       <SectionTitle textDecorationColor={textDecorationColor} as="h3">
