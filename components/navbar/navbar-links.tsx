@@ -69,7 +69,7 @@ const NavbarLinks: React.FC = () => {
   } else {
     return (
       <Menu isLazy>
-        <MenuButton as={Button}>
+        <MenuButton as={Button} aria-label="Open mobile menu">
           <HamburgerIcon />
         </MenuButton>
         <MenuList>{linksMobile}</MenuList>

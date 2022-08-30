@@ -7,6 +7,8 @@ import BioTimelineItem from './bio-timeline-item'
 
 const BioSection: React.FC = () => {
   const textDecorationColor = useColorModeValue('purple.500', 'orange.200')
+  const senpaiColor = useColorModeValue('#1e1f70', '#6768E3')
+  const coderhouseColor = useColorModeValue('#386918', '#C1D35D')
   return (
     <SimpleContainer as="section">
       <SectionTitle textDecorationColor={textDecorationColor} as="h3">
@@ -28,14 +30,14 @@ const BioSection: React.FC = () => {
         text={'Completed a Full Stack Developer Bootcamp at Senpai Academy.'}
         highlight="Senpai Academy"
         p={1}
-        color="#6768E3"
+        color={senpaiColor}
       />
       <BioTimelineItem
         year={2022}
         text={'Completed a React.js-specific course at Coderhouse.'}
         highlight="Coderhouse"
         p={1}
-        color="#C1D35D"
+        color={coderhouseColor}
       />
     </SimpleContainer>
   )
