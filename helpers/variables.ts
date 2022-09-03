@@ -20,7 +20,7 @@ export const links = {
     {
       name: 'Source',
       icon: FaGithub,
-      href: 'https://github.com/enzom-uy/'
+      href: 'https://github.com/enzom-uy/portfolio'
     }
   ],
   desktop: [
@@ -37,7 +37,7 @@ export const links = {
     {
       name: 'Source',
       icon: FaGithub,
-      href: 'https://github.com/enzom-uy/'
+      href: 'https://github.com/enzom-uy/portfolio'
     }
   ]
 }

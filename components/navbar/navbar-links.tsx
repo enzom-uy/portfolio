@@ -12,6 +12,7 @@ import {
   Link as ChakraLink,
   chakra
 } from '@chakra-ui/react'
+import { getCookie } from 'cookies-next'
 import { links } from 'helpers/variables'
 import useViewport from 'hooks/useViewport'
 import Link from 'next/link'
@@ -59,11 +60,31 @@ const linksMobile = links.mobile.map((item) => (
 const NavbarLinks: React.FC = () => {
   const router = useRouter()
   const currentPath = router.route
+  const isCurrentPath = currentPath === '/admin/dashboard'
   const { isMobile } = useViewport()
+  const isAdmin = getCookie('user')
   if (isMobile === false) {
     return (
       <Flex as={List} gap={2}>
         {linksDesktop(currentPath)}
+
+        {isAdmin && (
+          <ListItem
+            display="flex"
+            alignItems="center"
+            _hover={{
+              textDecoration: 'underline',
+              textUnderlineOffset: '3px'
+            }}
+            color={isCurrentPath ? 'dark' : undefined}
+            bgColor={isCurrentPath ? 'teal.500' : undefined}
+            p={2}
+          >
+            <NextLink href="/admin/dashboard">
+              <a>Admin</a>
+            </NextLink>
+          </ListItem>
+        )}
       </Flex>
     )
   } else {

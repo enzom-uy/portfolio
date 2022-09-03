@@ -8,25 +8,20 @@ export interface AuthResponse {
 }
 
 export const authUser = async (username: string, password: string) => {
-  try {
-    const axiosResponse: AuthResponse = await axios({
-      method: 'post',
-      url: 'http://localhost:3001/api/admin/login',
-      data: {
-        username: username,
-        password: password
-      }
-    }).then((res) => res.data)
-
-    const authData = {
-      authToken: axiosResponse.authToken,
-      username: axiosResponse.username,
-      status: axiosResponse.status,
-      error: axiosResponse.error
+  const axiosResponse: AuthResponse = await axios({
+    method: 'post',
+    url: 'http://localhost:8080/api/admin/login',
+    data: {
+      username: username,
+      password: password
     }
-    return authData
-  } catch (error) {
-    const responseError = error.response.data.error
-    return responseError
+  }).then((res) => res.data)
+  const error = axiosResponse.error
+
+  const authData = {
+    authToken: axiosResponse.authToken,
+    username: axiosResponse.username,
+    status: axiosResponse.status
   }
+  return { authData, error }
 }
