@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import {
   Button,
   chakra,
   FormControl,
   FormErrorMessage,
   FormLabel,
+  useToast,
   Input
 } from '@chakra-ui/react'
 import { authUser } from 'services/authUser'
@@ -14,6 +15,7 @@ import { useForm } from 'react-hook-form'
 import { useUserReducer } from 'reducers/user-reducer'
 import { AdminLoginInputs, adminLoginSchema } from '../../schemas/loginSchema'
 import { useRouter } from 'next/router'
+import { UserContext } from 'context/user-context'
 
 const ChakraForm = chakra('form')
 
@@ -29,23 +31,32 @@ const Login: React.FC = () => {
   })
   const { login } = useUserReducer()
   const router = useRouter()
+  const { getUsername } = useContext(UserContext)
+  const toast = useToast()
 
   const onSubmit = async (data: AdminLoginInputs) => {
     const username = data.username
     const password = data.password
     reset()
-    console.log('check')
 
     const { authData, error } = await authUser(username, password)
     if (authData) {
       login(authData)
+      if (getUsername) {
+        getUsername(authData.username)
+      }
       router.push('/admin/dashboard')
     }
     if (error) {
+      toast({
+        title: "You shouldn't be here...",
+        status: 'warning',
+        isClosable: true,
+        position: 'top'
+      })
       router.push('/')
     }
   }
-  console.log(errors)
 
   return (
     <ChakraForm

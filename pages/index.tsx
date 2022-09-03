@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Box } from '@chakra-ui/react'
@@ -10,6 +10,7 @@ import { UserContext } from 'context/user-context'
 
 const Home: NextPage = () => {
   const { username } = useContext(UserContext)
+  console.log(username)
   return (
     <>
       <Head>

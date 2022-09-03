@@ -21,6 +21,7 @@ const Dashboard: NextPage<{ isAdmin: boolean }> = ({ isAdmin }) => {
           _hover={{ bgColor: 'blue-hover' }}
           transitionProperty="all"
           transitionDuration="normal"
+          color="whiteAlpha.900"
         >
           New post
         </ChakraLink>
@@ -39,6 +40,7 @@ const Dashboard: NextPage<{ isAdmin: boolean }> = ({ isAdmin }) => {
           transitionProperty="all"
           transitionDuration="normal"
           whiteSpace="nowrap"
+          color="whiteAlpha.900"
         >
           New work
         </ChakraLink>

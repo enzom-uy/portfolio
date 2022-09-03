@@ -12,12 +12,13 @@ import {
   Link as ChakraLink,
   chakra
 } from '@chakra-ui/react'
+import { UserContext } from 'context/user-context'
 import { getCookie } from 'cookies-next'
 import { links } from 'helpers/variables'
 import useViewport from 'hooks/useViewport'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useContext } from 'react'
 
 const NextLink = chakra(Link)
 
@@ -62,7 +63,7 @@ const NavbarLinks: React.FC = () => {
   const currentPath = router.route
   const isCurrentPath = currentPath === '/admin/dashboard'
   const { isMobile } = useViewport()
-  const isAdmin = getCookie('user')
+  const { username, isAdmin } = useContext(UserContext)
   if (isMobile === false) {
     return (
       <Flex as={List} gap={2}>
