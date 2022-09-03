@@ -56,16 +56,18 @@ const Post: React.FC<{ data: any; preview: any }> = ({ data, preview }) => {
           <Category key={cat.title} cat={cat} />
         ))}
       </Flex>
-      <AspectRatio ratio={16 / 9}>
-        <NextChakraImage
-          src={urlFor(mainImage).url()}
-          width="100%"
-          height="100%"
-          layout="fill"
-          objectFit="cover"
-          rounded="lg"
-        />
-      </AspectRatio>
+      {mainImage && (
+        <AspectRatio ratio={16 / 9}>
+          <NextChakraImage
+            src={urlFor(mainImage).url()}
+            width="100%"
+            height="100%"
+            layout="fill"
+            objectFit="cover"
+            rounded="lg"
+          />
+        </AspectRatio>
+      )}
       <PortableText value={body} />
     </SimpleContainer>
   )
