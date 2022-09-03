@@ -8,7 +8,7 @@ const Editor: React.FC = () => {
   useEffect(() => {
     if (quill) {
       quill.on('text-change', (delta, oldDelta, source) => {
-        console.log(quill.getContents())
+        console.log(quill.root.innerHTML)
       })
     }
   }, [quill])

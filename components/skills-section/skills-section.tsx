@@ -3,6 +3,7 @@ import SectionTitle from 'components/text/section-title'
 import React from 'react'
 import BackendSkills from './skills-backend-skills'
 import SkillsCategory from './skills-category'
+import DatabasesSkills from './skills-databases-skills'
 import FrontendSkills from './skills-frontend-skills'
 import SkillsContainer from './skills-skills-container'
 
@@ -17,6 +18,11 @@ const SkillsSection: React.FC = () => {
       <SkillsCategory category="Backend" decorationColor="teal.800" />
       <SkillsContainer>
         <BackendSkills />
+      </SkillsContainer>
+
+      <SkillsCategory category="Databases" decorationColor="purple.700" />
+      <SkillsContainer>
+        <DatabasesSkills />
       </SkillsContainer>
     </SimpleContainer>
   )

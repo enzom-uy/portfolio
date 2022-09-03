@@ -17,7 +17,7 @@ import { AdminLoginInputs, adminLoginSchema } from '../../schemas/loginSchema'
 import { useRouter } from 'next/router'
 import { UserContext } from 'context/user-context'
 
-const ChakraForm = chakra('form')
+export const ChakraForm = chakra('form')
 
 const Login: React.FC = () => {
   const {
