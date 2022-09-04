@@ -30,11 +30,14 @@ export type Slug = {
   current: string
 }
 
-export type Post = {
+export type BasicInformation = {
   _id: string
   body: Array<Body>
-  categories: Array<Category>
   mainImage: MainImage
   slug: Slug
   title: string
+}
+
+export interface Post extends BasicInformation {
+  categories: Array<Category> | undefined
 }

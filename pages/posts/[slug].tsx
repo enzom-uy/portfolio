@@ -1,16 +1,14 @@
-import ErrorPage from 'next/error'
-import { groq } from 'next-sanity'
-import { PortableText } from '@portabletext/react'
-import { usePreviewSubscription, urlFor } from '../../lib/sanity'
-import { getClient } from '../../lib/client'
-import { GetStaticPaths, GetStaticProps } from 'next'
 import { AspectRatio, chakra, Flex, Text } from '@chakra-ui/react'
-import Image from 'next/image'
+import { PortableText } from '@portabletext/react'
 import SimpleContainer from 'components/containers/simple-container'
+import NextChakraImage from 'components/next-chakra-image'
 import Category from 'components/post/category'
 import { Post } from 'interfaces/posts'
-
-export const NextChakraImage = chakra(Image)
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { groq } from 'next-sanity'
+import ErrorPage from 'next/error'
+import { getClient } from '../../lib/client'
+import { urlFor, usePreviewSubscription } from '../../lib/sanity'
 
 const postQuery = groq`
   *[_type == "post" && slug.current == $slug][0] {
@@ -26,7 +24,10 @@ const postQuery = groq`
   }
 `
 
-const Post: React.FC<{ data: any; preview: any }> = ({ data, preview }) => {
+const Post: React.FC<{ data: { post: Post }; preview: any }> = ({
+  data,
+  preview
+}) => {
   const { data: post } = usePreviewSubscription(postQuery, {
     params: { slug: data?.post?.slug },
     initialData: data?.post,
@@ -52,7 +53,7 @@ const Post: React.FC<{ data: any; preview: any }> = ({ data, preview }) => {
         >
           {title}
         </Text>
-        {categories.map((cat) => (
+        {categories?.map((cat) => (
           <Category key={cat.title} cat={cat} />
         ))}
       </Flex>
@@ -92,12 +93,12 @@ export const getStaticProps: GetStaticProps = async ({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getClient('production').fetch(
+  const paths = await getClient('preview').fetch(
     groq`*[_type == "post" && defined(slug.current)][].slug.current`
   )
 
   return {
     paths: paths.map((slug: any) => ({ params: { slug } })),
-    fallback: true
+    fallback: false
   }
 }

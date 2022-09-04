@@ -6,7 +6,7 @@ import { urlFor } from 'lib/sanity'
 import Category from './category'
 
 interface Props {
-  categories: Array<CategoryType>
+  categories: Array<CategoryType> | undefined
   mainImage: MainImage
   body: Body[]
   title: string
@@ -20,7 +20,7 @@ const PostCard: React.FC<Props> = ({ categories, mainImage, body, title }) => {
           {title}
         </Text>
         <Flex flexDir="column">
-          {categories.map((cat) => (
+          {categories?.map((cat) => (
             <Category key={cat.title} cat={cat} />
           ))}
         </Flex>
