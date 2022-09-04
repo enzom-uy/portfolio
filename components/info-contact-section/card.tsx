@@ -24,17 +24,25 @@ const Card: React.FC = () => {
         alignItems={isMobile ? 'center' : ''}
         position="relative"
         pl={isMobile ? 0 : 8}
-        initial={{
-          opacity: 0,
-          translateY: '100%'
-        }}
-        animate={{
-          translateY: '0%',
-          opacity: 1
-        }}
-        transition={{
-          duration: '.8'
-        }}
+        initial={
+          !isMobile && {
+            opacity: 0,
+            translateY: '100%'
+          }
+        }
+        animate={
+          !isMobile && {
+            translateY: '0%',
+            opacity: 1
+          }
+        }
+        transition={
+          isMobile
+            ? undefined
+            : {
+                duration: '.8'
+              }
+        }
       >
         <SVGRing color={'#E21E1E'} scale="0.6" left="12%" top="2%" blur="5px" />
 

@@ -1,5 +1,6 @@
 import { Container } from '@chakra-ui/react'
 import { MotionBox } from 'components/motion/motion-box'
+import useViewport from 'hooks/useViewport'
 import Head from 'next/head'
 import { ReactNode } from 'react'
 
@@ -8,20 +9,29 @@ interface Props {
 }
 
 const Main: React.FC<Props> = ({ children }) => {
+  const isMobile = useViewport()
   return (
     <MotionBox
-      initial={{
-        opacity: 0,
-        translateY: '5%'
-      }}
-      animate={{
-        translateY: '0%',
-        opacity: 1
-      }}
-      transition={{
-        duration: '.8',
-        delay: '.3'
-      }}
+      initial={
+        !isMobile && {
+          opacity: 0,
+          translateY: '5%'
+        }
+      }
+      animate={
+        !isMobile && {
+          translateY: '0%',
+          opacity: 1
+        }
+      }
+      transition={
+        isMobile
+          ? undefined
+          : {
+              duration: '.8',
+              delay: '.3'
+            }
+      }
     >
       <Head>
         <link rel="icon" href="/favicon.ico" />
