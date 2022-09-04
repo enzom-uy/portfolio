@@ -11,7 +11,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Enzo Muñoz - Homepage</title>
+        <title>Homepage - Enzo Muñoz</title>
         <meta name="description" content="Enzo's Homepage" />
       </Head>
       <Box as="section">

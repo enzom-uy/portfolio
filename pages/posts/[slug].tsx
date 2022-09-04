@@ -7,6 +7,7 @@ import { Post } from 'interfaces/posts'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { groq } from 'next-sanity'
 import ErrorPage from 'next/error'
+import Head from 'next/head'
 import { getClient } from '../../lib/client'
 import { urlFor, usePreviewSubscription } from '../../lib/sanity'
 
@@ -41,36 +42,41 @@ const Post: React.FC<{ data: { post: Post }; preview: any }> = ({
   const { title, mainImage, body, categories } = post as Post
 
   return (
-    <SimpleContainer as="article" display="flex" flexDir="column" gap={4}>
-      <Flex alignItems="flex-end" gap={4}>
-        <Text
-          as="h2"
-          fontSize="2rem"
-          textDecorationLine="underline"
-          textDecorationColor="red.900"
-          textDecorationThickness="4px"
-          textUnderlineOffset="10px"
-        >
-          {title}
-        </Text>
-        {categories?.map((cat) => (
-          <Category key={cat.title} cat={cat} />
-        ))}
-      </Flex>
-      {mainImage && (
-        <AspectRatio ratio={16 / 9}>
-          <NextChakraImage
-            src={urlFor(mainImage).url()}
-            width="100%"
-            height="100%"
-            layout="fill"
-            objectFit="cover"
-            rounded="lg"
-          />
-        </AspectRatio>
-      )}
-      <PortableText value={body} />
-    </SimpleContainer>
+    <>
+      <Head>
+        <title>{title} - Enzo Muñoz</title>
+      </Head>
+      <SimpleContainer as="article" display="flex" flexDir="column" gap={4}>
+        <Flex alignItems="flex-end" gap={4}>
+          <Text
+            as="h2"
+            fontSize="2rem"
+            textDecorationLine="underline"
+            textDecorationColor="red.900"
+            textDecorationThickness="4px"
+            textUnderlineOffset="10px"
+          >
+            {title}
+          </Text>
+          {categories?.map((cat) => (
+            <Category key={cat.title} cat={cat} />
+          ))}
+        </Flex>
+        {mainImage && (
+          <AspectRatio ratio={16 / 9}>
+            <NextChakraImage
+              src={urlFor(mainImage).url()}
+              width="100%"
+              height="100%"
+              layout="fill"
+              objectFit="cover"
+              rounded="lg"
+            />
+          </AspectRatio>
+        )}
+        <PortableText value={body} />
+      </SimpleContainer>
+    </>
   )
 }
 

@@ -3,7 +3,6 @@ import { PortableText } from '@portabletext/react'
 import SimpleContainer from 'components/containers/simple-container'
 import NextChakraImage from 'components/next-chakra-image'
 import PortableTextContainer from 'components/portable-text-container'
-import SectionParagraph from 'components/text/section-paragraph'
 import SectionTitle from 'components/text/section-title'
 import { Work } from 'interfaces/works'
 import { GetStaticPaths, GetStaticProps } from 'next'
@@ -11,6 +10,7 @@ import { groq } from 'next-sanity'
 import ErrorPage from 'next/error'
 import { getClient } from '../../lib/client'
 import { urlFor, usePreviewSubscription } from '../../lib/sanity'
+import Head from 'next/head'
 
 const query = groq`
   *[_type == "work" && slug.current == $slug][0] {
@@ -45,70 +45,72 @@ const Work: React.FC<{ data: { work: Work }; preview: any }> = ({
   const { title, mainImage, body, stack, website, repository } = work as Work
 
   return (
-    <SimpleContainer as="article" display="flex" flexDir="column" gap={4}>
-      <Flex alignItems="flex-end" gap={4}>
-        <Text
-          as="h2"
-          fontSize="2rem"
-          textDecorationLine="underline"
-          textDecorationColor="red.900"
-          textDecorationThickness="4px"
-          textUnderlineOffset="10px"
-        >
-          {title}
-        </Text>
-        {/* {stack.map((tech) => (
-          <Text key={tech.title}>{tech.title}</Text>
-        ))} */}
-      </Flex>
-      {mainImage && (
-        <AspectRatio ratio={16 / 9}>
-          <NextChakraImage
-            src={urlFor(mainImage).url()}
-            width="100%"
-            height="100%"
-            layout="fill"
-            objectFit="cover"
-            rounded="lg"
-          />
-        </AspectRatio>
-      )}
-      <SimpleContainer flexDir="column" m={0}>
-        <SectionTitle color="teal.700">Stack</SectionTitle>
-        <Flex gap={4}>
-          {stack.map((tech) => (
-            <Text whiteSpace="nowrap" key={tech.title} fontSize="1.2rem">
-              {tech.title}
-            </Text>
-          ))}
+    <>
+      <Head>
+        <title>{title} - Enzo Muñoz</title>
+      </Head>
+      <SimpleContainer as="article" display="flex" flexDir="column" gap={4}>
+        <Flex alignItems="flex-end" gap={4}>
+          <Text
+            as="h2"
+            fontSize="2rem"
+            textDecorationLine="underline"
+            textDecorationColor="red.900"
+            textDecorationThickness="4px"
+            textUnderlineOffset="10px"
+          >
+            {title}
+          </Text>
         </Flex>
+        {mainImage && (
+          <AspectRatio ratio={16 / 9}>
+            <NextChakraImage
+              src={urlFor(mainImage).url()}
+              width="100%"
+              height="100%"
+              layout="fill"
+              objectFit="cover"
+              rounded="lg"
+            />
+          </AspectRatio>
+        )}
+        <SimpleContainer flexDir="column" m={0}>
+          <SectionTitle color="teal.700">Stack</SectionTitle>
+          <Flex gap={4} wrap="wrap">
+            {stack.map((tech) => (
+              <Text whiteSpace="nowrap" key={tech.title} fontSize="1.2rem">
+                {tech.title}
+              </Text>
+            ))}
+          </Flex>
+        </SimpleContainer>
+        <SimpleContainer flexDir="column" m={0}>
+          <SectionTitle color="red.700">Website</SectionTitle>
+          <Link
+            href={website}
+            target="_blank"
+            fontSize="1.2rem"
+            letterSpacing="wide"
+          >
+            {website}
+          </Link>
+        </SimpleContainer>
+        <SimpleContainer flexDir="column">
+          <SectionTitle color="green.800">Repository</SectionTitle>
+          <Link
+            href={repository}
+            target="_blank"
+            fontSize="1.2rem"
+            letterSpacing="wide"
+          >
+            {repository}
+          </Link>
+        </SimpleContainer>
+        <PortableTextContainer>
+          <PortableText value={body} />
+        </PortableTextContainer>
       </SimpleContainer>
-      <SimpleContainer flexDir="column" m={0}>
-        <SectionTitle color="red.700">Website</SectionTitle>
-        <Link
-          href={website}
-          target="_blank"
-          fontSize="1.2rem"
-          letterSpacing="wide"
-        >
-          {website}
-        </Link>
-      </SimpleContainer>
-      <SimpleContainer flexDir="column">
-        <SectionTitle color="green.800">Repository</SectionTitle>
-        <Link
-          href={repository}
-          target="_blank"
-          fontSize="1.2rem"
-          letterSpacing="wide"
-        >
-          {repository}
-        </Link>
-      </SimpleContainer>
-      <PortableTextContainer>
-        <PortableText value={body} />
-      </PortableTextContainer>
-    </SimpleContainer>
+    </>
   )
 }
 

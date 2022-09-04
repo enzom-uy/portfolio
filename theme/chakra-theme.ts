@@ -31,8 +31,9 @@ const colors = {
   'blue-hover': '#055bbf'
 }
 
-const boxShadows = {
-  card: '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )'
+const shadows = {
+  card: '0 2px 32px 0 rgba( 255, 38, 135, 0.10 )',
+  'card-baseline': '0 2px 20px 0 rgba( 255, 38, 135, 0.10 )'
 }
 
 const fonts = {
@@ -63,7 +64,7 @@ export const theme = extendTheme({
   colors,
   fonts,
   breakpoints,
-  boxShadows,
+  shadows,
   fontSizes,
   sizes
 })

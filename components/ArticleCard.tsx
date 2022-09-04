@@ -2,21 +2,39 @@ import { Flex, Text, AspectRatio, Box } from '@chakra-ui/react'
 import SimpleContainer from 'components/containers/simple-container'
 import NextChakraImage from 'components/next-chakra-image'
 import { Body, Category as CategoryType, MainImage } from 'interfaces/posts'
+import { Tech } from 'interfaces/works'
 import { urlFor } from 'lib/sanity'
-import Category from './category'
+import Category from './post/category'
 
 interface Props {
-  categories: Array<CategoryType> | undefined
+  categories?: Array<CategoryType> | undefined
   mainImage: MainImage
   body: Body[]
   title: string
+  stack?: Tech[]
+  repository?: string
+  website?: string
 }
 
-const PostCard: React.FC<Props> = ({ categories, mainImage, body, title }) => {
+const ArticleCard: React.FC<Props> = ({
+  categories,
+  mainImage,
+  body,
+  title
+}) => {
   return (
-    <SimpleContainer as="article" display="flex" flexDir="column" gap={4}>
+    <SimpleContainer
+      as="article"
+      display="flex"
+      flexDir="column"
+      boxShadow="card-baseline"
+      transitionProperty="all"
+      transitionDuration="normal"
+      _hover={{ transform: 'scale(1.03)' }}
+      zIndex="99"
+    >
       <Flex alignItems="center" gap={4}>
-        <Text as="h2" fontSize="2rem">
+        <Text as="h2" fontSize="2rem" fontWeight="semibold">
           {title}
         </Text>
         <Flex flexDir="column">
@@ -32,7 +50,7 @@ const PostCard: React.FC<Props> = ({ categories, mainImage, body, title }) => {
         </Text>
       </Box>
       {mainImage && (
-        <AspectRatio ratio={16 / 9}>
+        <AspectRatio ratio={16 / 9} mt={4}>
           <NextChakraImage
             src={urlFor(mainImage).url()}
             width="100%"
@@ -47,4 +65,4 @@ const PostCard: React.FC<Props> = ({ categories, mainImage, body, title }) => {
   )
 }
 
-export default PostCard
+export default ArticleCard

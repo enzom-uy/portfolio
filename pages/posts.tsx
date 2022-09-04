@@ -1,4 +1,6 @@
 import { Grid } from '@chakra-ui/react'
+import SimpleContainer from 'components/containers/simple-container'
+import SectionTitle from 'components/text/section-title'
 import { Post } from 'interfaces/posts'
 import { getClient } from 'lib/client'
 import { GetStaticProps, NextPage } from 'next'
@@ -6,32 +8,35 @@ import { groq } from 'next-sanity'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import Link from 'next/link'
-const PostCard = dynamic(() => import('components/post/post-card'))
+const ArticleCard = dynamic(() => import('components/ArticleCard'))
 
 const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
   return (
     <>
       <Head>
-        <title>Enzo Muñoz - Posts</title>
+        <title>Posts - Enzo Muñoz</title>
         <meta name="description" content="Enzo's Posts" />
       </Head>
 
-      <Grid templateColumns="1fr 1fr" gap={4}>
-        {posts.length === 0
-          ? 'There are no posts yet 😢.'
-          : posts.map((post) => (
-              <Link key={post._id} href={`/posts/${post.slug?.current}`}>
-                <a>
-                  <PostCard
-                    categories={post.categories}
-                    body={post.body}
-                    title={post.title}
-                    mainImage={post.mainImage}
-                  />
-                </a>
-              </Link>
-            ))}
-      </Grid>
+      <SimpleContainer flexDir="column" gap={4}>
+        <SectionTitle color="teal.700">Posts</SectionTitle>
+        <Grid templateColumns="1fr 1fr" gap={4}>
+          {posts.length === 0
+            ? 'There are no posts yet 😢.'
+            : posts.map((post) => (
+                <Link key={post._id} href={`/posts/${post.slug?.current}`}>
+                  <a>
+                    <ArticleCard
+                      categories={post.categories}
+                      body={post.body}
+                      title={post.title}
+                      mainImage={post.mainImage}
+                    />
+                  </a>
+                </Link>
+              ))}
+        </Grid>
+      </SimpleContainer>
     </>
   )
 }
