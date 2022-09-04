@@ -6,10 +6,10 @@ import TwitterCardPfp from './twitter-card-pfp'
 
 interface Props {
   twitter: Twitter | undefined
-  error: {}
+  isLoading: boolean
 }
 
-const TwitterCardTop: React.FC<Props> = ({ twitter, error }) => {
+const TwitterCardTop: React.FC<Props> = ({ twitter, isLoading }) => {
   const twitterName = twitter?.twitterData.name
   const twitterUsername = twitter?.twitterData.username
   return (
@@ -17,7 +17,7 @@ const TwitterCardTop: React.FC<Props> = ({ twitter, error }) => {
       <Flex alignItems="center" gap={3}>
         <TwitterCardPfp
           profilePicture={twitter?.twitterData.profile_image_url}
-          error={error}
+          isLoading={isLoading}
         />
         <Box>
           <Text fontWeight="600" letterSpacing="tight">

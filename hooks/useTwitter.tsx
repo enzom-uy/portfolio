@@ -1,7 +1,7 @@
 import getTwitterData from 'services/getTwitterData'
 import useSWR from 'swr'
 
-export const apiUrl = process.env.NEXT_PUBLIC_API_LINK
+export const apiUrl = process.env.NEXT_PUBLIC_API_URL
 
 const useTwitter = () => {
   const { data: twitter, error } = useSWR(`${apiUrl}/twitter`, getTwitterData, {

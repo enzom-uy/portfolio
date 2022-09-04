@@ -1,4 +1,4 @@
-import { Flex, useColorModeValue } from '@chakra-ui/react'
+import { Flex, SkeletonText, useColorModeValue } from '@chakra-ui/react'
 import useTwitter from 'hooks/useTwitter'
 import { floatingIcon } from 'lib/animations'
 import React from 'react'
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const TwitterCard: React.FC<Props> = ({ top, right, bottom, left }) => {
-  const { twitter, error, followings, followers } = useTwitter()
+  const { twitter, followings, followers, isLoading } = useTwitter()
 
   return (
     <FloatingCardContainer
@@ -36,12 +36,21 @@ const TwitterCard: React.FC<Props> = ({ top, right, bottom, left }) => {
         w="full"
         flexDir="column"
       >
-        <TwitterCardTop twitter={twitter} error={error} />
-        <TwitterCardBottom
-          twitter={twitter}
-          followings={followings}
-          followers={followers}
-        />
+        <TwitterCardTop twitter={twitter} isLoading={isLoading} />
+        <SkeletonText
+          isLoaded={!isLoading}
+          noOfLines={3}
+          spacing="2"
+          fadeDuration={1}
+          px={4}
+          pt={2}
+        >
+          <TwitterCardBottom
+            twitter={twitter}
+            followings={followings}
+            followers={followers}
+          />
+        </SkeletonText>
       </Flex>
     </FloatingCardContainer>
   )

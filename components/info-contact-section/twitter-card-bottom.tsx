@@ -17,7 +17,7 @@ const TwitterCardBottom: React.FC<Props> = ({
   const description = twitter?.twitterData.description
 
   return (
-    <Box width="full" px={4} pt={2}>
+    <Box width="full">
       <Text
         fontSize=".8rem"
         fontFamily="manrope"

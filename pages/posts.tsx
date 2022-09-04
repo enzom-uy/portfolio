@@ -1,14 +1,14 @@
-import { Flex, Grid } from '@chakra-ui/react'
-import PostCard from 'components/post/post-card'
+import { Grid } from '@chakra-ui/react'
 import { Post } from 'interfaces/posts'
 import { getClient } from 'lib/client'
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { GetStaticProps, NextPage } from 'next'
 import { groq } from 'next-sanity'
 import Head from 'next/head'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
+const PostCard = dynamic(() => import('components/post/post-card'))
 
 const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
-  console.log(posts)
   return (
     <>
       <Head>
@@ -17,10 +17,10 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
       </Head>
 
       <Grid templateColumns="1fr 1fr" gap={4}>
-        {!posts
+        {posts.length === 0
           ? 'Aún no hay posts publicados 😢'
           : posts.map((post) => (
-              <Link key={post._id} href={`/posts/${post.slug.current}`}>
+              <Link key={post._id} href={`/posts/${post.slug?.current}`}>
                 <a>
                   <PostCard
                     categories={post.categories}
@@ -60,6 +60,6 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
       preview,
       posts: post
     },
-    revalidate: 10
+    revalidate: 60
   }
 }
