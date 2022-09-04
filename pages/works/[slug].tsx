@@ -71,6 +71,7 @@ const Work: React.FC<{ data: { work: Work }; preview: any }> = ({
               layout="fill"
               objectFit="cover"
               rounded="lg"
+              priority
             />
           </AspectRatio>
         )}

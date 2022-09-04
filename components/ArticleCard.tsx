@@ -58,6 +58,7 @@ const ArticleCard: React.FC<Props> = ({
             layout="fill"
             objectFit="cover"
             rounded="lg"
+            priority
           />
         </AspectRatio>
       )}

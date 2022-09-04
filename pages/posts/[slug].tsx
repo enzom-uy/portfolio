@@ -71,6 +71,7 @@ const Post: React.FC<{ data: { post: Post }; preview: any }> = ({
               layout="fill"
               objectFit="cover"
               rounded="lg"
+              priority
             />
           </AspectRatio>
         )}
