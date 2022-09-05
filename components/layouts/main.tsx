@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Main: React.FC<Props> = ({ children }) => {
-  const isMobile = useViewport()
+  const { isMobile } = useViewport()
   return (
     <MotionBox
       initial={
