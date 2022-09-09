@@ -121,7 +121,7 @@ export const getStaticProps: GetStaticProps = async ({
   params,
   preview = false
 }) => {
-  const work = await getClient('preview').fetch(query, {
+  const work = await getClient('production').fetch(query, {
     slug: params?.slug
   })
 
@@ -129,12 +129,13 @@ export const getStaticProps: GetStaticProps = async ({
     props: {
       preview,
       data: { work }
-    }
+    },
+    revalidate: 60
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = await getClient('preview').fetch(
+  const paths = await getClient('production').fetch(
     groq`*[_type == "work" && defined(slug.current)][].slug.current`
   )
 

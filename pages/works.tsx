@@ -61,7 +61,7 @@ const worksQuery = groq`
 `
 
 export const getStaticProps: GetStaticProps = async () => {
-  const work = await getClient('preview').fetch(worksQuery)
+  const work = await getClient('production').fetch(worksQuery)
 
   return {
     props: {
