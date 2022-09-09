@@ -5,11 +5,12 @@ import useViewport from 'hooks/useViewport'
 import React from 'react'
 import { IconType } from 'react-icons'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { CgMail } from 'react-icons/cg'
 
 const contactInfo: Array<{
   name: string
   icon: IconType
-  href: string
+  href?: string
 }> = [
   {
     name: '/enzom-uy',
@@ -17,14 +18,19 @@ const contactInfo: Array<{
     href: 'https://github.com/enzom-uy/'
   },
   {
-    name: '@enzom_uy',
-    icon: FaTwitter,
-    href: 'https://twitter.com/enzom_uy'
+    name: 'enzom.dev@gmail.com',
+    icon: CgMail,
+    href: 'mailto:enzom.dev@gmail.com'
   },
   {
     name: 'Enzo Muñoz',
     icon: FaLinkedin,
     href: 'https://www.linkedin.com/in/enzomdev/'
+  },
+  {
+    name: '@enzom_uy',
+    icon: FaTwitter,
+    href: 'https://twitter.com/enzom_uy'
   }
 ]
 
