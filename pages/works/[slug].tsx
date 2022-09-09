@@ -49,7 +49,14 @@ const Work: React.FC<{ data: { work: Work }; preview: any }> = ({
       <Head>
         <title>{title} - Enzo Muñoz</title>
       </Head>
-      <SimpleContainer as="article" display="flex" flexDir="column" gap={4}>
+      <SimpleContainer
+        as="article"
+        display="flex"
+        flexDir="column"
+        gap={4}
+        minW="300px"
+        width="600px"
+      >
         <Flex alignItems="flex-end" gap={4}>
           <Text
             as="h2"
@@ -78,7 +85,7 @@ const Work: React.FC<{ data: { work: Work }; preview: any }> = ({
         <SimpleContainer flexDir="column" m={0}>
           <SectionTitle color="teal.700">Stack</SectionTitle>
           <Flex gap={4} wrap="wrap">
-            {stack.map((tech) => (
+            {stack?.map((tech) => (
               <Text whiteSpace="nowrap" key={tech.title} fontSize="1.2rem">
                 {tech.title}
               </Text>
@@ -141,6 +148,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: paths.map((slug: any) => ({ params: { slug } })),
-    fallback: false
+    fallback: 'blocking'
   }
 }

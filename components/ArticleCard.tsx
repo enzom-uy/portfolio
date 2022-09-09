@@ -46,7 +46,7 @@ const ArticleCard: React.FC<Props> = ({
 
       <Box noOfLines={2} overflow="hidden" textOverflow="ellipsis">
         <Text>
-          {body.map((thing) => thing.children.map((thing) => thing.text))}
+          {body?.map((thing) => thing.children.map((thing) => thing.text))}
         </Text>
       </Box>
       {mainImage && (
