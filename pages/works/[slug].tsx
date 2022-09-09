@@ -137,7 +137,7 @@ export const getStaticProps: GetStaticProps = async ({
       preview,
       data: { work }
     },
-    revalidate: 60
+    revalidate: 10
   }
 }
 
