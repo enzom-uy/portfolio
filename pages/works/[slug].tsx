@@ -1,4 +1,4 @@
-import { AspectRatio, chakra, Flex, Link, Text } from '@chakra-ui/react'
+import { AspectRatio, chakra, Flex, Link, Tag, Text } from '@chakra-ui/react'
 import { PortableText } from '@portabletext/react'
 import SimpleContainer from 'components/containers/simple-container'
 import NextChakraImage from 'components/next-chakra-image'
@@ -86,9 +86,16 @@ const Work: React.FC<{ data: { work: Work }; preview: any }> = ({
           <SectionTitle color="teal.700">Stack</SectionTitle>
           <Flex gap={4} wrap="wrap">
             {stack?.map((tech) => (
-              <Text whiteSpace="nowrap" key={tech.title} fontSize="1.2rem">
+              <Tag
+                whiteSpace="nowrap"
+                key={tech.title}
+                fontSize="1.2rem"
+                colorScheme="teal"
+                px={2}
+                py={1}
+              >
                 {tech.title}
-              </Text>
+              </Tag>
             ))}
           </Flex>
         </SimpleContainer>

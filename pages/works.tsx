@@ -20,7 +20,7 @@ const Works: NextPage<{ works: Work[] }> = ({ works }) => {
       </Head>
 
       <SimpleContainer flexDir="column" gap={4}>
-        <SectionTitle color="red.600">Posts</SectionTitle>
+        <SectionTitle color="red.600">Works</SectionTitle>
         <Grid templateColumns="1fr" gap={4}>
           {works.length === 0
             ? 'There are no projects yet 😢.'
@@ -32,6 +32,7 @@ const Works: NextPage<{ works: Work[] }> = ({ works }) => {
                       title={work.title}
                       body={work.body}
                       website={work.website}
+                      stack={work.stack}
                     />
                   </a>
                 </Link>

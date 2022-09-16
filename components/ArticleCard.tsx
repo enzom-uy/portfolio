@@ -20,8 +20,10 @@ const ArticleCard: React.FC<Props> = ({
   categories,
   mainImage,
   body,
-  title
+  title,
+  stack
 }) => {
+  console.log(stack)
   return (
     <SimpleContainer
       as="article"
@@ -33,13 +35,17 @@ const ArticleCard: React.FC<Props> = ({
       _hover={{ transform: 'scale(1.03)' }}
       zIndex="99"
     >
-      <Flex alignItems="center" gap={4}>
+      <Flex justifyContent="center" flexDir="column">
         <Text as="h2" fontSize="2rem" fontWeight="semibold">
           {title}
         </Text>
-        <Flex flexDir="column">
+        <Flex mb={1} gap={2}>
           {categories?.map((cat) => (
             <Category key={cat.title} cat={cat} />
+          ))}
+
+          {stack?.map((tech) => (
+            <Category key={tech.title} cat={tech} />
           ))}
         </Flex>
       </Flex>

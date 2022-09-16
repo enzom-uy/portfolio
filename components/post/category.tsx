@@ -1,7 +1,8 @@
-import { Text } from '@chakra-ui/react'
+import { Tag } from '@chakra-ui/react'
 import { Category } from 'interfaces/posts'
+import { Tech } from 'interfaces/works'
 
-const Category: React.FC<{ cat: Category }> = ({ cat }) => {
+const Category: React.FC<{ cat: Category | Tech }> = ({ cat }) => {
   const { title } = cat
   const personal = title === 'Personal'
   const showcase = title === 'Showcase'
@@ -17,15 +18,16 @@ const Category: React.FC<{ cat: Category }> = ({ cat }) => {
     ? 'green.700'
     : undefined
   return (
-    <Text
+    <Tag
       key={title}
       color="whiteAlpha.800"
       p={1}
       bgColor={textColor}
+      colorScheme="red"
       rounded="lg"
     >
       {title}
-    </Text>
+    </Tag>
   )
 }
 
