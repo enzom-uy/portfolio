@@ -20,21 +20,21 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
 
       <SimpleContainer flexDir="column" gap={4}>
         <SectionTitle color="teal.700">Posts</SectionTitle>
-        <Grid templateColumns="1fr 1fr" gap={4}>
+        <Grid templateColumns="1fr" gap={4}>
           {posts.length === 0
             ? 'There are no posts yet 😢.'
             : posts.map((post) => (
-                <Link key={post._id} href={`/posts/${post.slug?.current}`}>
-                  <a>
-                    <ArticleCard
-                      categories={post.categories}
-                      body={post.body}
-                      title={post.title}
-                      mainImage={post.mainImage}
-                    />
-                  </a>
-                </Link>
-              ))}
+              <Link key={post._id} href={`/posts/${post.slug?.current}`}>
+                <a>
+                  <ArticleCard
+                    categories={post.categories}
+                    body={post.body}
+                    title={post.title}
+                    mainImage={post.mainImage}
+                  />
+                </a>
+              </Link>
+            ))}
         </Grid>
       </SimpleContainer>
     </>
