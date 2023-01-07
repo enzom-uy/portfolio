@@ -24,17 +24,17 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
           {posts.length === 0
             ? 'There are no posts yet 😢.'
             : posts.map((post) => (
-              <Link key={post._id} href={`/posts/${post.slug?.current}`}>
-                <a>
-                  <ArticleCard
-                    categories={post.categories}
-                    body={post.body}
-                    title={post.title}
-                    mainImage={post.mainImage}
-                  />
-                </a>
-              </Link>
-            ))}
+                <Link key={post._id} href={`/posts/${post.slug?.current}`}>
+                  <a>
+                    <ArticleCard
+                      categories={post.categories}
+                      body={post.body}
+                      title={post.title}
+                      mainImage={post.mainImage}
+                    />
+                  </a>
+                </Link>
+              ))}
         </Grid>
       </SimpleContainer>
     </>
@@ -58,7 +58,7 @@ const postQuery = groq`
 `
 
 export const getStaticProps: GetStaticProps = async () => {
-  const post = await getClient('preview').fetch(postQuery)
+  const post = await getClient('production').fetch(postQuery)
 
   return {
     props: {
