@@ -20,7 +20,7 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
 
       <SimpleContainer flexDir="column" gap={4}>
         <SectionTitle color="teal.700">Posts</SectionTitle>
-        <Grid templateColumns="1fr" gap={4}>
+        <Grid templateColumns="100%" gap={4}>
           {posts.length === 0
             ? 'There are no posts yet 😢.'
             : posts.map((post) => (
@@ -43,7 +43,8 @@ const Posts: NextPage<{ posts: Post[] }> = ({ posts }) => {
 
 export default Posts
 
-const postQuery = groq`
+export const getStaticProps: GetStaticProps = async () => {
+  const postQuery = groq`
   *[_type == "post"] {
     _id,
     title,
@@ -56,8 +57,6 @@ const postQuery = groq`
     slug
   }
 `
-
-export const getStaticProps: GetStaticProps = async () => {
   const post = await getClient('production').fetch(postQuery)
 
   return {

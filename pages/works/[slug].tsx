@@ -1,4 +1,4 @@
-import { AspectRatio, chakra, Flex, Link, Tag, Text } from '@chakra-ui/react'
+import { AspectRatio, Flex, Link, Tag, Text } from '@chakra-ui/react'
 import { PortableText } from '@portabletext/react'
 import SimpleContainer from 'components/containers/simple-container'
 import NextChakraImage from 'components/next-chakra-image'

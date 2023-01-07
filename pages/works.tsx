@@ -45,7 +45,8 @@ const Works: NextPage<{ works: Work[] }> = ({ works }) => {
 
 export default Works
 
-const worksQuery = groq`
+export const getStaticProps: GetStaticProps = async () => {
+  const worksQuery = groq`
   *[_type == "work"] {
     _id,
     title,
@@ -60,8 +61,6 @@ const worksQuery = groq`
     slug
   }
 `
-
-export const getStaticProps: GetStaticProps = async () => {
   const work = await getClient('production').fetch(worksQuery)
 
   return {
