@@ -6,7 +6,8 @@ const SimpleContainer = chakra(Flex, {
     p: 6,
     rounded: 'lg',
     boxShadow: 'base',
-    mb: 6
+    mb: 6,
+    width: 'full'
   }
 })
 

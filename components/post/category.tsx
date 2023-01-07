@@ -25,6 +25,8 @@ const Category: React.FC<{ cat: Category | Tech }> = ({ cat }) => {
       bgColor={textColor}
       colorScheme="red"
       rounded="lg"
+      width="min-content"
+      whiteSpace="nowrap"
     >
       {title}
     </Tag>

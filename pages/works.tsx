@@ -21,7 +21,7 @@ const Works: NextPage<{ works: Work[] }> = ({ works }) => {
 
       <SimpleContainer flexDir="column" gap={4}>
         <SectionTitle color="red.600">Works</SectionTitle>
-        <Grid templateColumns="1fr" gap={4}>
+        <Grid templateColumns="100%" gap={4} width="full">
           {works.length === 0
             ? 'There are no projects yet 😢.'
             : works.map((work) => (

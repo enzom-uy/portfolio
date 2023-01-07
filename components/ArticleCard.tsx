@@ -23,7 +23,6 @@ const ArticleCard: React.FC<Props> = ({
   title,
   stack
 }) => {
-  console.log(stack)
   return (
     <SimpleContainer
       as="article"
@@ -39,7 +38,7 @@ const ArticleCard: React.FC<Props> = ({
         <Text as="h2" fontSize="2rem" fontWeight="semibold">
           {title}
         </Text>
-        <Flex mb={1} gap={2}>
+        <Flex mb={1} gap={2} wrap="wrap">
           {categories?.map((cat) => (
             <Category key={cat.title} cat={cat} />
           ))}
